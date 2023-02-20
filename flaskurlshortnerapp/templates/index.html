@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>URL SHORTNER</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+</head>
+
+<body>
+  
+    <div class="d-flex justify-content-center">
+
+        <div class="mt-5 border p-5 col-md-4 col-sm-8">
+            <form action="" method="post">
+                <h2>URL SHORTNER</h2>
+                <div class="mb-3">
+                  <label for="url" class="form-label">Enter a long URL to make a TinyURL </label>
+                  <input type="url" class="form-control" name="url" id="url" aria-describedby="helpId" placeholder="" value="{{data.url}}" required>
+                </div>
+                <div class="mb-3">
+                  <label for="alias" class="form-label">Alias </label>
+                  <input type="text" class="form-control" name="alias" id="alias" aria-describedby="helpId" placeholder="" minlength="1" value="{{data.alias}}" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            {% if data.alias  %}
+                <br>
+                <div><span>Short : <a target="_blank" href="{{data.host}}/{{data.alias}}" >{{data.host}}/{{data.alias}}</a></span></div>
+            {% endif %}
+
+            {% if error.message  %}
+                <br>
+                <p class="text-danger">{{error.message}}</p>
+            {% endif %}
+        </div>
+
+    </div>
+
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>
