@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block title %}SignUp{% endblock %}
+
+
+{% block content %}
+
+    <div class="d-flex justify-content-center">
+     <div class="mt-5 p-2 border col-md-6 col-sm-6 bg-light">
+        <form action="" method="post" onsubmit="return validate(this)">
+        <h2>Signup</h2>
+        <!--FLASH MESSAGES-->
+        {% include "messageflash.html" %}
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelpId" placeholder="abc@mail.com" required>
+        </div>
+        <div class="mb-3">
+          <label for="mobile" class="form-label">Mobile : </label>
+          <input type="text" class="form-control" name="mobile" id="mobile" aria-describedby="helpId" placeholder="" minlength="10" maxlength="10"  required>
+        </div>
+        <div class="mb-3">
+          <label for="first_name" class="form-label">First Name : </label>
+          <input type="text" class="form-control" name="first_name" id="first_name" aria-describedby="helpId" placeholder="" required>
+        </div>
+         <div class="mb-3">
+          <label for="last_name" class="form-label">Last Name : </label>
+          <input type="text" class="form-control" name="last_name" id="last_name" aria-describedby="helpId" placeholder="" required>
+        </div>
+
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gender" id="male" value="Male" required>
+          <label class="form-check-label" for="male">
+            Male
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gender" id="female" value="Female" required>
+          <label class="form-check-label" for="female">
+            Female
+          </label>
+        </div>
+
+         <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" name="password" id="password" placeholder="" minlength="8" required>
+        </div>
+
+         <div class="mb-3">
+          <label for="confirm" class="form-label">Confirm Password</label>
+          <input type="password" class="form-control" name="confirm" id="confirm" placeholder="" minlength="8"  required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Signup</button>
+        <div class="p-2 mb-3">
+            <!-- url_for('func_name') to get the url for the specified function-->
+            Already have an account ? <a href="{{url_for('user_login')}}">Login</a>
+        </div>
+    </form>
+     </div>
+    </div>
+
+    <script>
+        // valdiate before form submission
+        function validate(){
+            // get mobile number value
+            var mobile = document.getElementById("mobile").value.trim();
+
+            // get password and confirm password values
+            var password = document.getElementById("password").value.trim();
+            var confirm = document.getElementById("confirm").value.trim();
+
+            // if mobile number length not equal to 10
+            // or
+            // if mobile number "is Not a Number"
+            // then return false to prevent form submission
+            if(mobile.length!==10 || isNaN(mobile)){
+                alert("Enter a valid mobile number !");
+                return false;
+            }
+
+            // if password not equal to confirm password
+            // then prevent form submission
+            if(password!==confirm){
+                alert("Passwords donot match !");
+                return false;
+            }
+
+        }
+    </script>
+
+  {% endblock content %}

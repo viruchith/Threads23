@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+
+
+{% block content %}
+
+    <div class="d-flex justify-content-center">
+     <div class="mt-5 p-2 border col-md-6 col-sm-6 bg-light">
+        <form action="" method="post">
+        <h2>Login</h2>
+        <!--FLASH MESSAGES-->
+        {% include "messageflash.html" %}
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelpId" placeholder="abc@mail.com" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" name="password" id="password"  minlength="8"  placeholder="" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+        <div class="p-2 mb-3">
+            <!-- url_for('func_name') to get the url for the specified function-->
+            Don't have an account ? <a href="{{url_for('user_signup')}}">Signup</a>
+        </div>
+    </form>
+     </div>
+    </div>
+
+  {% endblock content %}

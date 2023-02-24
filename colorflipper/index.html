@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            align-content: center;
+            text-align: center;
+            margin-block: 10rem;
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="background-color: white;" id="color-name" ></h1>
+        <br>
+        <button onclick="changeColor()" ><h3>Change Color</h3></button>
+    </div>
+    <script>
+        var colors = ['aqua', 'black', 'blue', 'fuchsia', 'gray', 'green', 'lime', 'maroon', 'navy', 'olive', 'purple', 'red', 'silver', 'teal','white','yellow']
+        
+        var index = 0;
+
+        //initially on page load
+        changeColor(colors[index]);
+
+        // itearte the colors array and set the background color on click
+        function changeColor(){
+            if(index>=colors.length){
+                //if reached the end of the array reset the index to 0 , to start from the beginning
+                index=0;
+            }
+            document.body.style.backgroundColor = colors[index];
+            setColorName(colors[index]);
+            index++;
+        }
+
+        //display color name to the user
+        function setColorName(name){
+            document.getElementById("color-name").textContent = name;
+        }
+
+    </script>
+</body>
+</html>

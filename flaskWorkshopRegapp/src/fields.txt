@@ -1,0 +1,13 @@
+Event Creation page 
+    - Name
+    - description 
+    - date & time 
+    - organizer contact details 
+        - Name
+        - Gender
+        - Email 
+        - Mobile 
+        - address 
+    - Type of event ( online | offline)
+        - URL / Location 
+    - No of seats available

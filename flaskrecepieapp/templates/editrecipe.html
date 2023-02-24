@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Recipe{% endblock %}
+
+
+{% block content %}
+
+    <div class="d-flex justify-content-center">
+     <div class="mt-5 mb-3 p-3 border col-md-6 col-sm-6 bg-light">
+        <form action="" method="post" enctype='multipart/form-data' >
+        <h2>Edit Recipe : {{recipe.name}}</h2>
+        <!--FLASH MESSAGES-->
+        {% include "messageflash.html" %}
+        <div class="mb-3">
+          <label for="name" class="form-label">Name : </label>
+          <input type="text" class="form-control" name="name" id="name" value="{{recipe.name}}"  placeholder="Recepie Name" required>
+        </div>
+
+        <div class="mb-3">
+            <img src="/static/images/recipes/{{recipe.id}}.jpg" class="img-fluid rounded-top" alt="">
+        </div>
+
+        <div class="mb-3">
+          <label for="image" class="form-label">Select Image : </label>
+          <input type="file" class="form-control" name="image" id="image" accept=".jpg,.jpeg,.png" placeholder="Select recipe image" aria-describedby="fileHelpId">
+          <div id="fileHelpId" class="form-text">Select only image files</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="category" class="form-label">Category</label>
+            <select class="form-select form-select-lg" name="category" id="category" required>
+                <option value="Food" {%if recipe.category=='Food' %} selected {% endif %}  >Food</option>
+                <option value="Snack" {%if recipe.category=='Snack' %} selected {% endif %}  >Snack</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="description" class="form-label">Description : </label>
+          <textarea class="form-control" name="description" id="description" rows="3" required>{{recipe.description}}</textarea>
+        </div>
+
+        <div class="mb-3">
+          <label for="ingredients" class="form-label">Ingredients : </label>
+          <textarea class="form-control" name="ingredients" id="ingredients" rows="3" required>{{recipe.ingredients}}</textarea>
+        </div>
+
+
+        <div class="mb-3">
+          <label for="instructions" class="form-label">Instructions : </label>
+          <textarea class="form-control" name="instructions" id="instructions" rows="3" required>{{recipe.instructions}}</textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Update</button>
+        <!--Confirm before deletion-->
+        <a type="button" onclick="return confirm('Are you sure to delete this recipe')"  class="btn btn-danger">Delete</a>
+
+    </form>
+     </div>
+    </div>
+
+  {% endblock content %}

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xylophone App</title>
+</head>
+
+<style>
+
+  body{
+    background-color: blanchedalmond;
+  }
+
+.container {
+  width: 600px;
+  height: 300px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 36px 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-block: auto;
+  position: relative;
+}
+
+.note {
+  width: 60px;
+  display: flex;
+  color: #3a2f21;
+  font-weight: normal;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  position: relative;
+  z-index: 10;
+  border: 3px solid black;
+}
+
+.note-do1{
+    background-color: red;
+    height: 300px;
+
+}
+
+
+.note-re{
+    background-color: purple;
+    height: 300px;
+
+}
+
+.note-mi{
+    background-color: blueviolet;
+    height: 300px;
+
+}
+
+
+.note-fa{
+    background-color: yellow;
+    height: 300px;
+
+}
+
+
+
+.note-sol{
+    background-color: greenyellow;
+    height: 300px;
+
+}
+
+
+
+.note-la{
+    background-color: whitesmoke;
+    height: 300px;
+
+}
+
+
+.note-ti{
+    background-color: pink;
+    height: 300px;
+
+}
+
+.note-do2{
+    background-color: maroon;
+    height: 300px;
+
+}
+
+.note-label{
+  background-color: white;
+  color: black;
+  padding:2px;
+}
+
+#audio-container{
+  display:grid;
+  justify-content: center;
+}
+
+</style>
+
+<body>
+    
+
+<div class="container">
+    <div class="note note-do1" id="0" onclick="play('DO1')" >
+      <h3 class="note-label">DO1</h3>
+    </div>
+    <div class="note note-re" id="1" onclick="play('RE')" >
+      <h3 class="note-label">RE</h3>
+    </div>
+    <div class="note note-mi" id="2" onclick="play('MI')">
+      <h3 class="note-label">MI</h3>
+    </div>
+    <div class="note note-fa" id="3" onclick="play('FA')" >
+      <h3 class="note-label">FA</h3>
+    </div>
+    <div class="note note-sol" id="4" onclick="play('SOL')" >
+      <h3 class="note-label">SOL</h3>
+    </div>
+    <div class="note note-la" id="5" onclick="play('LA')" >
+      <h3 class="note-label">LA</h3>
+    </div>
+    <div class="note note-ti" id="6" onclick="play('TI')" >
+      <h3 class="note-label">TI</h3>
+    </div>
+    <div class="note note-do2" id="7" onclick="play('DO2')" >
+      <h3 class="note-label">DO2</h3>
+    </div>
+  </div>
+
+  <br>
+
+  <div id="audio-container" >
+    <h3>DO1</h3>
+    <audio controls src="/sounds/DO1.mp3"></audio>
+    <br>
+    <h3>RE</h3>
+    <audio controls src="/sounds/RE.mp3"></audio>
+    <br>
+    <h3>MI</h3>
+    <audio controls src="/sounds/MI.mp3"></audio>
+    <br>
+    <h3>FA</h3>
+    <audio controls src="/sounds/FA.mp3"></audio>
+    <br>
+    <h3>SOL</h3>
+    <audio controls src="/sounds/SOL.mp3"></audio>
+    <br>
+    <h3>LA</h3>
+    <audio controls src="/sounds/LA.mp3"></audio>
+    <br>
+    <h3>TI</h3>
+    <audio controls src="/sounds/TI.mp3"></audio>
+    <br>
+    <h3>DO2</h3>
+    <audio controls src="/sounds/DO.mp3"></audio>
+    <br>
+  </div>
+
+  <script>
+    // intialize each audio files as object
+
+    var notes = {
+      DO1:new Audio('/sounds/DO1.mp3'),// url / path of the audio file
+      RE:new Audio('/sounds/RE.mp3'),
+      MI:new Audio('/sounds/MI.mp3'),
+      FA:new Audio('/sounds/FA.mp3'),
+      SOL:new Audio('/sounds/SOL.mp3'),
+      LA:new Audio('/sounds/LA.mp3'),
+      TI:new Audio('/sounds/TI.mp3'),
+      DO2:new Audio('/sounds/DO2.mp3'),
+
+    };
+
+
+    function play(note){
+      //stop playing if already clicked
+      notes[note].pause();
+      //play from the beginning
+      notes[note].currentTime=0;
+      notes[note].play();
+    }
+    
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Recepies{% endblock %}
+
+
+{% block content %}
+
+    <div class="m-3 p-5">
+        <div class="row">
+          {% for recipe in recipes %}
+          <div class="col-md-4 m-3">
+            <div class="card">
+              <img class="card-img-top" src="/static/images/recipes/{{recipe.id}}.jpg" alt="{{recipe.name}} image">
+              <div class="card-body">
+                <h3 class="card-title">{{recipe.name}}</h3>
+                <h6 class="m-2">Last updated : {{recipe.updated_at}}</h6>
+                <p class="card-text">{{recipe.description}}</p>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+
+        </div>
+    </div>
+
+  {% endblock content %}
